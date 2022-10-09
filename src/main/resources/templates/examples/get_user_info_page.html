@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>User info</title>
+</head>
+<body>
+<div class="container">
+    <h2>User info</h2>
+        <div>
+            <span th:text="${'Login: ' +  user.getLogin() +' ID: ' + user.getUserId() + ' Password: ' + user.getPassword()}"></span><br>
+<!--            <span th:text="${'Login: ' +  user.builder().login().build() +' ID: ' + user.getUserId() + ' Password: ' + user.getPassword()}"></span><br>-->
+            <br>
+        </div>
+    <br>
+    <p></p>
+    <a th:href="@{/users}" class="btn btn-primary">Список пользователей</a>
+    <p></p>
+</div>
+</body>
+</html>

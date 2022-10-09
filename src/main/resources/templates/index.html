@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Create</title>
@@ -11,13 +11,14 @@
 <div>
 <!--  <h3>th:action ="@{$pageContext.request.userPrincipal.name}"</h3>-->
 <!--  <h3><form method="get" th:action="@{${pageContext.request.userPrincipal.name}}"><h3>-->
-  <th:authorize access="!isAuthenticated()">
+  <div sec:authorize="!isAuthenticated()">
     <h4><a href="/login">Войти</a></h4>
     <h4><a href="/registration">Зарегистрироваться</a></h4>
-  </th:authorize>
-  <th:authorize access="isAuthenticated()">
+  </div>
+  <div sec:authorize="isAuthenticated()">
+<!--  <th:authorize access="isAuthenticated()">-->
     <h4><a href="/logout">Выйти</a></h4>
-  </th:authorize>
+  </div>
   <h4><a href="/news">Новости (только пользователь)</a></h4>
   <h4><a href="/admin">Пользователи (только админ)</a></h4>
 </div>

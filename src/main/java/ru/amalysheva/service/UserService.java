@@ -70,7 +70,8 @@ public class UserService implements UserDetailsService {
 
     //todo
     public List<User> usergtList(Long idMin) {
-        return entityManager.createQuery("SELECT u FROM User u WHERE u.id > :paramId", User.class)
-                .setParameter("paramId", idMin).getResultList();
+        return userRepository.findUserByIdBefore(idMin);
+//        return entityManager.createQuery("SELECT u FROM User u WHERE u.id > :paramId", User.class)
+//                .setParameter("paramId", idMin).getResultList();
     }
 }
